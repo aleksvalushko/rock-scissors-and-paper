@@ -1,6 +1,8 @@
 const game = () => {
     let playerScore = 0,
-        skynetScore = 0;
+        skynetScore = 0,
+        skynetHand = document.querySelector('.skynet-hand img'),
+        playerHand = document.querySelector('.player-hand img');
 
     const startGame = () => {
         const playBtn = document.querySelector('.intro button'),
@@ -14,10 +16,8 @@ const game = () => {
     }
 
     function playMatch() {
-        const skynetHand = document.querySelector('.skynet-hand img'),
-            skynetArray = ['rock', 'scissors', 'paper'],
+        const skynetArray = ['rock', 'scissors', 'paper'],
             playerOptions = document.querySelectorAll('.options button'),
-            playerHand = document.querySelector('.player-hand img'),
             hands = document.querySelectorAll('.hands img');
 
             hands.forEach(hand => {
@@ -50,11 +50,19 @@ const game = () => {
         sScore.textContent = skynetScore;
     }
 
+    const updateHands = () => {
+        skynetHand.src = 'img/rock.png';
+        playerHand.src = 'img/rock.png';
+    }
+
     function compareHand(playerChoice, skynetChoice) {
         const winner = document.querySelector('.winner');
 
         if (playerChoice === skynetChoice) {
             winner.textContent = 'It is a tie!';
+            setTimeout(() => {
+                updateHands();
+            }, 1000);
             return;
         }
 
@@ -63,11 +71,17 @@ const game = () => {
                 winner.textContent = 'Player wins!';
                 playerScore++;
                 updateScore();
+                setTimeout(() => {
+                    updateHands();
+                }, 1000);
                 return;
             } else {
                 winner.textContent = 'Skynet wins!';
                 skynetScore++;
                 updateScore();
+                setTimeout(() => {
+                    updateHands();
+                }, 1000);
                 return;
             }
         }
@@ -77,11 +91,17 @@ const game = () => {
                 winner.textContent = 'Player wins!';
                 playerScore++;
                 updateScore();
+                setTimeout(() => {
+                    updateHands();
+                }, 1000);
                 return;
             } else {
                 winner.textContent = 'Skynet wins!';
                 skynetScore++;
                 updateScore();
+                setTimeout(() => {
+                    updateHands();
+                }, 1000);
                 return;
             }
         }
@@ -91,11 +111,17 @@ const game = () => {
                 winner.textContent = 'Player wins!';
                 playerScore++;
                 updateScore();
+                setTimeout(() => {
+                    updateHands();
+                }, 1000);
                 return;
             } else {
                 winner.textContent = 'Skynet wins!';
                 skynetScore++;
                 updateScore();
+                setTimeout(() => {
+                    updateHands();
+                }, 1000);
                 return;
             }
         }
