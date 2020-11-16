@@ -46,6 +46,7 @@ const game = () => {
     const updateScore = () => {
         const pScore = document.querySelector('.player-score p'),
             sScore = document.querySelector('.skynet-score p');
+            
         pScore.textContent = playerScore;
         sScore.textContent = skynetScore;
     }
